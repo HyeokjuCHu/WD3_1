@@ -1,6 +1,6 @@
 <%@ page import="org.example.springcrudpro.SubjectVO" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="false" %>
 <jsp:include page="top.jsp" />
 
 <div class="container">
@@ -39,7 +39,12 @@
     <tr>
       <td><%= vo.getId() %></td>
       <td>
-        <img src="<%= request.getContextPath() + "/img/" + vo.getProfP() %>" alt="교수님 사진" style="width:50px; height:50px;" />
+        <img
+                src="<%= request.getContextPath() + "/img/" + vo.getProfP() %>"
+                alt="교수님 사진"
+                style="width:50px; height:50px;"
+        />
+
       </td>
       <td><%= vo.getCategory() %></td>
       <td><%= vo.getCode() %></td>

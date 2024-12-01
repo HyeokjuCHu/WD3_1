@@ -1,10 +1,10 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ page pageEncoding="UTF-8" %>
 <%@ include file="top.jsp" %>
 
 <div class="container">
     <h2>환영합니다!</h2>
-    <img src="views/handong.svg" alt="Logo" class="logo">
+    <img src="<%=request.getContextPath()%>/img/handong.svg" class="logo">
     <p>이곳은 과목 관리 시스템입니다. 과목 목록을 보고 추가할 수 있습니다.</p>
 </div>
 <jsp:include page="bottom.jsp" />

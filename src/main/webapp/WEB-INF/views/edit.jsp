@@ -1,66 +1,66 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page import="org.example.springcrudpro.SubjectVO" %>
-<%@ page import="java.util.List" %>
 <jsp:include page="top.jsp" />
-
-<%
-    // SubjectVO 객체는 컨트롤러에서 모델로 전달됨
-    SubjectVO subject = (SubjectVO) request.getAttribute("subject");
-%>
 
 <div class="container">
     <h2>과목 수정하기</h2>
-    <form action="edit_ok" method="post" accept-charset="utf-8">
-        <input type="hidden" name="id" value="<%= subject.getId() %>" />
+
+    <!-- Spring form tag to bind the form fields to the SubjectVO object -->
+    <form:form method="POST" action="edit_ok" modelAttribute="subject">
+        <!-- Hidden input field for subject ID -->
+        <form:input path="id" type="hidden" />
+
         <table>
             <tr>
                 <th>이수구분</th>
-                <td><input type="text" name="category" value="<%= subject.getCategory() %>" required /></td>
+                <td><form:input path="category" required="true" /></td>
             </tr>
             <tr>
                 <th>과목코드</th>
-                <td><input type="text" name="code" value="<%= subject.getCode() %>" required /></td>
+                <td><form:input path="code" required="true" /></td>
             </tr>
             <tr>
                 <th>과목명</th>
-                <td><input type="text" name="name" value="<%= subject.getName() %>" required /></td>
+                <td><form:input path="name" required="true" /></td>
             </tr>
             <tr>
                 <th>영어비율</th>
-                <td><input type="number" name="englishRatio" value="<%= subject.getEnglishRatio() %>" required /></td>
+                <td><form:input path="englishRatio" type="number" required="true" /></td>
             </tr>
             <tr>
                 <th>학점</th>
-                <td><input type="number" name="credits" value="<%= subject.getCredits() %>" required /></td>
+                <td><form:input path="credits" type="number" required="true" /></td>
             </tr>
             <tr>
                 <th>분반</th>
-                <td><input type="text" name="classNum" value="<%= subject.getClassNum() %>" required /></td>
+                <td><form:input path="classNum" required="true" /></td>
             </tr>
             <tr>
                 <th>담당교수</th>
-                <td><input type="text" name="professor" value="<%= subject.getProfessor() %>" required /></td>
+                <td><form:input path="professor" required="true" /></td>
             </tr>
             <tr>
                 <th>수업시간</th>
-                <td><input type="text" name="classTime" value="<%= subject.getClassTime() %>" required /></td>
+                <td><form:input path="classTime" required="true" /></td>
             </tr>
             <tr>
                 <th>강의실</th>
-                <td><input type="text" name="classRoom" value="<%= subject.getClassRoom() %>" required /></td>
+                <td><form:input path="classRoom" required="true" /></td>
             </tr>
             <tr>
                 <th>유형</th>
-                <td><input type="text" name="grade" value="<%= subject.getGrade() %>" required /></td>
+                <td><form:input path="grade" required="true" /></td>
             </tr>
             <tr>
                 <th>교수님 사진</th>
-                <td><input type="file" name="profP" accept="image/*" /></td>
+                <td><form:input path="profP" type="file" /></td>
             </tr>
         </table>
         <input type="submit" value="수정" />
-    </form>
+    </form:form>
+
     <a href="list">목록으로 돌아가기</a>
 </div>
 
